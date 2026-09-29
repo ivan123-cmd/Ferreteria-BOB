@@ -88,7 +88,7 @@ async function pagar(){
     try{
         const correo = localStorage.getItem("usuario") || "cliente@ferreteria.com";
         const respuesta = await fetch(
-            "http://localhost:3000/api/pedidos/crear",
+            "https://ferreteria-bob.onrender.com/api/pedidos/crear",
             {
                 method:"POST",
                 headers:{
