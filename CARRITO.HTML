@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito de Compras</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f4f4;
+    margin:0;
+}
+header{
+    background:#1f2937;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+.contenedor{
+    width:90%;
+    max-width:1000px;
+    margin:30px auto;
+}
+.item{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+.total{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    font-size:22px;
+    font-weight:bold;
+}
+.btn{
+    width:100%;
+    padding:15px;
+    background:#f59e0b;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:18px;
+    margin-top:20px;
+}
+.btn:hover{
+    background:#d97706;
+}
+</style>
+</head>
+<body>
+<header>
+    <h1>Carrito de Compras</h1>
+</header>
+<div class="contenedor">
+    <div id="productos"></div>
+    <div id="total" class="total"></div>
+    <button class="btn" onclick="pagar()">
+        Proceder al pago
+    </button>
+</div>
+<script>
+
+const carrito=JSON.parse(localStorage.getItem("carrito")) || [];
+
+let html="";
+let total=0;
+
+carrito.forEach(producto=>{
+    const subtotal=producto.precio*producto.cantidad;
+    total+=subtotal;
+    html+=`
+    <div class="item">
+        <h3>${producto.nombre}</h3>
+        <p>Cantidad: ${producto.cantidad}</p>
+        <p>Precio: $${producto.precio}</p>
+        <p>Subtotal: $${subtotal}</p>
+    </div>
+    `;
+});
+document.getElementById("productos").innerHTML=html;
+document.getElementById("total").innerHTML="Total a pagar: $"+total;
+
+async function pagar(){
+    try{
+        const correo = localStorage.getItem("usuario") || "cliente@ferreteria.com";
+        const respuesta = await fetch(
+            "http://localhost:3000/api/pedidos/crear",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    cliente:correo,
+                    productos:carrito,
+                    total:total
+                })
+            }
+        );
+        const datos = await respuesta.json();
+        if(!respuesta.ok){
+            alert(datos.mensaje);
+            return;
+        }
+        alert("Pedido registrado correctamente. Serás redirigido a Wompi para realizar el pago.");
+localStorage.removeItem("carrito");
+window.location.href =
+"https://checkout.wompi.co/l/VPOS_GuMdDB";
+
+    }catch(error){
+        console.error(error);
+        alert("Error al registrar el pedido");
+    }
+}
+</script>
+</body>
+</html>

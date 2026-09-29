@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Ferretería BOB</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        body{
+            background:#f4f4f4;
+            color:#333;
+        }
+        /* Header */
+        header{
+            background:#16253a;
+            color:white;
+            padding:20px 0;
+            text-align:center;
+        }
+        header h1{
+            margin-bottom:15px;
+            font-size:2.2rem;
+        }
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:0 20px;
+            font-size:1rem;
+            transition:.3s;
+        }
+        nav a:hover{
+            color:#f4a300;
+        }
+        /* Banner */
+        .banner{
+            background:#e8e8e8;
+            padding:80px 20px;
+            text-align:center;
+        }
+        .banner h2{
+            font-size:3rem;
+            margin-bottom:15px;
+            color:#16253a;
+        }
+        .banner p{
+            font-size:1.1rem;
+            margin-bottom:25px;
+        }
+        .btn{
+            display:inline-block;
+            background:#f4a300;
+            color:white;
+            padding:14px 30px;
+            text-decoration:none;
+            border-radius:5px;
+            font-weight:bold;
+            transition:.3s;
+        }
+        .btn:hover{
+            background:#d88c00;
+        }
+        /* Servicios */
+        .servicios{
+            padding:80px 10%;
+            text-align:center;
+        }
+        .servicios h2{
+            font-size:2.5rem;
+            color:#16253a;
+            margin-bottom:50px;
+        }
+        .grid-servicios{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+            gap:25px;
+        }
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            transition:.3s;
+        }
+        .card:hover{
+            transform:translateY(-8px);
+        }
+        .icon{
+            font-size:3rem;
+            margin-bottom:15px;
+        }
+        .card h3{
+            color:#16253a;
+            margin-bottom:10px;
+        }
+        .card p{
+            color:#666;
+            line-height:1.6;
+        }
+        /* BOTON */
+        .boton {
+            display: block;
+            width: 200px;
+            margin: 30px auto 10px;
+            padding: 12px;
+            text-align: center;
+            background-color: #f59e0b;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        .boton:hover {
+            background-color: #d97706;
+        }
+        /* Footer */
+        footer{
+            background:#16253a;
+            color:white;
+            text-align:center;
+            padding:25px;
+            margin-top:50px;
+        }
+    </style>
+</head>
+<body id="inicio">
+<body>
+    <header>
+        <h1>Ferretería BOB</h1>
+        <nav>
+            <a href="INICIO.html">Inicio</a>
+            <a href="PRODUCTOS.html">Productos</a>
+            <a href="SERVICIOS.HTML">Servicios</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+    <section class="banner">
+        <h2>Nuestros Servicios</h2>
+        <p>Soluciones rápidas y profesionales para todos tus proyectos.</p>
+        
+    </section>
+    <section class="servicios">
+        <h2>Servicios Especializados</h2>
+        <div class="grid-servicios">
+            <div class="card">
+                <div class="icon">🚚</div>
+                <h3>Domicilios</h3>
+                <p>Entrega de productos a domicilio de forma rápida, segura y confiable.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔑</div>
+                <h3>Duplicado de Llaves</h3>
+                <p>Elaboración de copias de llaves con precisión para hogares, negocios y vehículos.</p>
+            </div>
+            <div class="card">
+                <div class="icon">✂️</div>
+                <h3>Corte de Materiales</h3>
+                <p>Realizamos cortes según las medidas solicitadas para optimizar tu trabajo.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔧</div>
+                <h3>Reparaciones</h3>
+                <p>Servicios de mantenimiento e instalación para diferentes tipos de proyectos.</p>
+            </div>
+            <div class="card">
+                <div class="icon">💬</div>
+                <h3>Asesoría</h3>
+                <p>Orientación profesional para ayudarte a elegir los mejores productos.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📋</div>
+                <h3>Cotizaciones</h3>
+                <p>Presupuestos personalizados para proyectos, remodelaciones y obras.</p>
+            </div>
+        </div>
+    </section>
+    <!-- BOTON REGRESAR -->
+        <a href="http://127.0.0.1:5500/INICIO.html" class="boton">
+            INICIO
+        </a>
+        <a href="#inicio" class="boton">
+            PRINCIPIO DE PAGINA
+        </a>
+        </body>
+    <footer>
+        <p>2026 Ferretería BOB - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

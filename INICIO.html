@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ferretería BOB | TECHCODEINN</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f5f5;
+    color:#222;
+}
+a{
+    text-decoration:none;
+}
+header{
+    width:100%;
+    background:#1f2937;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 6%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+nav{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+nav a{
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    transition:.3s;
+}
+nav a:hover{
+    color:#f59e0b;
+}
+.boton-login{
+    padding:10px 16px;
+    border:1px solid white;
+    border-radius:6px;
+    color:white;
+}
+.boton-login:hover{
+    background:white;
+    color:#1f2937;
+}
+.boton-registro{
+    padding:10px 16px;
+    background:#f59e0b;
+    border-radius:6px;
+    color:white!important;
+}
+.boton-registro:hover{
+    background:#d97706;
+}
+.banner{
+    min-height:600px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+    background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),url("martillo.jpg");
+    background-size:cover;
+    background-position:center;
+}
+.banner h2{
+    color:white;
+    font-size:48px;
+    max-width:900px;
+    margin-bottom:20px;
+}
+.banner p{
+    color:white;
+    font-size:20px;
+    max-width:700px;
+    margin-bottom:30px;
+}
+.boton-banner{
+    display:inline-block;
+    padding:14px 30px;
+    background:#f59e0b;
+    color:white;
+    border-radius:7px;
+    font-size:17px;
+    font-weight:bold;
+}
+.boton-banner:hover{
+    background:#d97706;
+}
+section{
+    padding:70px 6%;
+}
+.titulo-seccion{
+    text-align:center;
+    font-size:34px;
+    margin-bottom:15px;
+    color:#1f2937;
+}
+.descripcion-seccion{
+    text-align:center;
+    max-width:750px;
+    margin:0 auto 45px;
+    color:#666;
+    line-height:1.7;
+}
+.categorias{
+    background:white;
+}
+.contenedor-categorias{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    max-width:1200px;
+    margin:auto;
+}
+.categoria{
+    background:#f8f8f8;
+    padding:30px 20px;
+    text-align:center;
+    border-radius:10px;
+    border:1px solid #ddd;
+    transition:.3s;
+}
+.categoria:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+.icono-categoria{
+    font-size:45px;
+    margin-bottom:15px;
+}
+.categoria h3{
+    color:#1f2937;
+    margin-bottom:10px;
+}
+.categoria p{
+    color:#666;
+    font-size:14px;
+    line-height:1.5;
+}
+.productos{
+    background:#f5f5f5;
+}
+.contenedor-productos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    max-width:1200px;
+    margin:auto;
+}
+.producto{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    transition:.3s;
+}
+.producto:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+.producto img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+.producto-contenido{
+    padding:20px;
+}
+.producto h3{
+    color:#1f2937;
+    margin-bottom:10px;
+}
+.producto p{
+    color:#666;
+    line-height:1.5;
+    margin-bottom:15px;
+}
+.precio{
+    font-size:20px;
+    font-weight:bold;
+    color:#d97706;
+    margin-bottom:15px;
+}
+.boton-producto{
+    display:inline-block;
+    padding:10px 18px;
+    background:#1f2937;
+    color:white;
+    border-radius:5px;
+    font-weight:bold;
+}
+.boton-producto:hover{
+    background:#374151;
+}
+.servicios{
+    background:white;
+}
+.contenedor-servicios{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    max-width:1200px;
+    margin:auto;
+}
+.servicio{
+    text-align:center;
+    padding:30px 20px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    transition:.3s;
+}
+.servicio:hover{
+    border-color:#f59e0b;
+    transform:translateY(-5px);
+}
+.servicio-icono{
+    font-size:42px;
+    margin-bottom:15px;
+}
+.servicio h3{
+    margin-bottom:10px;
+    color:#1f2937;
+}
+.servicio p{
+    color:#666;
+    line-height:1.5;
+}
+.nosotros{
+    background:#1f2937;
+    color:white;
+    text-align:center;
+}
+.nosotros .titulo-seccion{
+    color:white;
+}
+.nosotros p{
+    max-width:850px;
+    margin:auto;
+    line-height:1.8;
+    color:#ddd;
+    font-size:17px;
+}
+.contacto{
+    background:#f5f5f5;
+}
+.contenedor-contacto{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:10px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+.grupo-formulario{
+    margin-bottom:20px;
+}
+.grupo-formulario label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:7px;
+    color:#1f2937;
+}
+.grupo-formulario input,
+.grupo-formulario textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-family:Arial;
+    font-size:15px;
+}
+.grupo-formulario textarea{
+    min-height:130px;
+    resize:vertical;
+}
+.boton-contacto{
+    width:100%;
+    padding:13px;
+    background:#f59e0b;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.boton-contacto:hover{
+    background:#d97706;
+}
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+}
+footer p{
+    margin-bottom:8px;
+    color:#ccc;
+}
+footer strong{
+    color:#f59e0b;
+}
+.volver-arriba{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:50px;
+    height:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f59e0b;
+    color:white;
+    border-radius:50%;
+    font-size:22px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+    z-index:999;
+}
+.volver-arriba:hover{
+    background:#d97706;
+}
+@media(max-width:1000px){
+    .contenedor-categorias{
+        grid-template-columns:repeat(2,1fr);
+    }
+    .contenedor-servicios{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+@media(max-width:800px){
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+    }
+    .banner h2{
+        font-size:36px;
+    }
+    .contenedor-productos{
+        grid-template-columns:1fr;
+    }
+}
+@media(max-width:600px){
+    section{
+        padding:50px 5%;
+    }
+    .banner{
+        min-height:500px;
+    }
+    .banner h2{
+        font-size:30px;
+    }
+    .banner p{
+        font-size:17px;
+    }
+    .contenedor-categorias,
+    .contenedor-servicios{
+        grid-template-columns:1fr;
+    }
+    .logo-container h1{
+        font-size:20px;
+    }
+}
+</style>
+</head>
+
+<body id="inicio">
+
+<header>
+    <div class="logo-container">
+        <h1>Ferretería <span>BOB</span></h1>
+    </div>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="PRODUCTOS.html">Productos</a>
+        <a href="SERVICIOS.HTML">Servicios</a>
+        <a href="#contacto">Contacto</a>
+        <a href="LOGIN.html" class="boton-login">Iniciar sesión</a>
+        <a href="REGISTRO.html" class="boton-registro">Registrarse</a>
+    </nav>
+</header>
+<section class="banner">
+    <h2>Todo lo que necesitas para tus proyectos</h2>
+    <p>Encuentra herramientas, materiales, productos y soluciones para tus proyectos de construcción y reparación.</p>
+    <a href="PRODUCTOS.html" class="boton-banner">Ver productos</a>
+</section>
+<section class="categorias">
+    <h2 class="titulo-seccion">Categorías</h2>
+    <p class="descripcion-seccion">Encuentra los materiales y herramientas que necesitas para tus proyectos.</p>
+    <div class="contenedor-categorias">
+        <div class="categoria">
+            <div class="icono-categoria">🔩</div>
+            <h3>Tornillería</h3>
+            <p>Tornillos, tuercas, arandelas, pernos, remaches y fijaciones.</p>
+        </div>
+        <div class="categoria">
+            <div class="icono-categoria">🛠️</div>
+            <h3>Herramientas</h3>
+            <p>Martillos, destornilladores, alicates, llaves y más.</p>
+        </div>
+        <div class="categoria">
+            <div class="icono-categoria">⚡</div>
+            <h3>Material eléctrico</h3>
+            <p>Cables, enchufes, interruptores y accesorios eléctricos.</p>
+        </div>
+        <div class="categoria">
+            <div class="icono-categoria">🧱</div>
+            <h3>Construcción</h3>
+            <p>Materiales y productos para construcción y remodelación.</p>
+        </div>
+    </div>
+</section>
+<section class="productos">
+    <h2 class="titulo-seccion">Productos destacados</h2>
+    <p class="descripcion-seccion">Conoce algunos de los productos disponibles en nuestra ferretería.</p>
+    <div class="contenedor-productos">
+        <div class="producto">
+            <img src="martillo.jpg" alt="Martillo profesional">
+            <div class="producto-contenido">
+                <h3>Martillo profesional</h3>
+                <p>Martillo resistente para trabajos de construcción y reparación.</p>
+                <div class="precio">$35.000</div>
+                <a href="PRODUCTOS.html" class="boton-producto">Ver producto</a>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="martillo.jpg" alt="Herramientas">
+            <div class="producto-contenido">
+                <h3>Herramientas manuales</h3>
+                <p>Herramientas para diferentes trabajos de mantenimiento.</p>
+                <div class="precio">Desde $15.000</div>
+                <a href="PRODUCTOS.html" class="boton-producto">Ver productos</a>
+            </div>
+        </div>
+        <div class="producto">
+            <img src="martillo.jpg" alt="Materiales de ferretería">
+            <div class="producto-contenido">
+                <h3>Materiales de ferretería</h3>
+                <p>Productos para construcción, reparación y mantenimiento.</p>
+                <div class="precio">Ver catálogo</div>
+                <a href="PRODUCTOS.html" class="boton-producto">Ver productos</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="servicios">
+    <h2 class="titulo-seccion">Nuestros servicios</h2>
+    <p class="descripcion-seccion">Además de nuestros productos, ofrecemos diferentes servicios para facilitar tus proyectos.</p>
+    <div class="contenedor-servicios">
+        <div class="servicio">
+            <div class="servicio-icono">✂️</div>
+            <h3>Corte de materiales</h3>
+            <p>Servicio de corte para diferentes materiales según tus necesidades.</p>
+        </div>
+        <div class="servicio">
+            <div class="servicio-icono">👷</div>
+            <h3>Asesoría técnica</h3>
+            <p>Te ayudamos a encontrar los productos adecuados para tu proyecto.</p>
+        </div>
+        <div class="servicio">
+            <div class="servicio-icono">🚚</div>
+            <h3>Domicilios</h3>
+            <p>Recibe tus productos directamente en el lugar que necesites.</p>
+        </div>
+        <div class="servicio">
+            <div class="servicio-icono">📋</div>
+            <h3>Cotizaciones</h3>
+            <p>Solicita cotizaciones para proyectos personales o empresariales.</p>
+        </div>
+    </div>
+</section>
+<section class="nosotros" id="nosotros">
+    <h2 class="titulo-seccion">Sobre Ferretería BOB</h2>
+    <p>Ferretería BOB es un establecimiento dedicado a la comercialización de herramientas, materiales y productos de ferretería. Nuestro objetivo es ofrecer productos de calidad y facilitar a nuestros clientes el acceso a soluciones para sus proyectos de construcción, reparación y mantenimiento.</p>
+</section>
+<section class="contacto" id="contacto">
+    <h2 class="titulo-seccion">Contáctanos</h2>
+    <p class="descripcion-seccion">¿Tienes alguna pregunta? Escríbenos y nos pondremos en contacto contigo.</p>
+    <div class="contenedor-contacto">
+        <form>
+            <div class="grupo-formulario">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div class="grupo-formulario">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" placeholder="ejemplo@gmail.com" required>
+            </div>
+            <div class="grupo-formulario">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje..."></textarea>
+            </div>
+            <button type="submit" class="boton-contacto">Enviar mensaje</button>
+        </form>
+    </div>
+</section>
+<footer>
+    <p>2026 <strong>TECHCODEINN</strong> - Ferretería BOB</p>
+    <p>Herramientas y materiales para tus proyectos.</p>
+</footer>
+<a href="#inicio" class="volver-arriba" title="Volver arriba">↑</a>
+</body>
+</html>
